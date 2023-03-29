@@ -1,0 +1,54 @@
+<template>
+  <el-select v-model="value1" multiple placeholder="请选择" @remove-tag="remove">
+    <el-option
+      style="display: none"
+      v-for="item in value2"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+    ></el-option>
+    <el-option>123</el-option>
+  </el-select>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      options: [
+        {
+          value: '选项1',
+          label: '黄金糕'
+        },
+        {
+          value: '选项2',
+          label: '双皮奶'
+        },
+        {
+          value: '选项3',
+          label: '蚵仔煎'
+        },
+        {
+          value: '选项4',
+          label: '龙须面'
+        },
+        {
+          value: '选项5',
+          label: '北京烤鸭'
+        }
+      ],
+      value1: [],
+      value2: []
+    }
+  },
+  created() {
+    window._th = this
+    this.value2 = []
+  },
+  methods: {
+    remove(val) {
+      console.log(val)
+    }
+  }
+}
+</script>
