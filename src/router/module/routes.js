@@ -1,30 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/views/Home'
-import TopNav from '@/views/TopNav'
-const Echarts = () => import('../views/echarts/index.vue')
-const EchartsLineAll = () => import('../views/echarts/charts/baseLine/index.vue')
-const EchartsLine1 = () => import('../views/echarts/charts/baseLine/components/Line1.vue')
-const G2 = () => import('../views/g2/index.vue')
-const G2LineAll = () => import('../views/g2/charts/baseLine/index.vue')
-const G2Line1 = () => import('../views/g2/charts/baseLine/components/Line1.vue')
-const G2Line2 = () => import('../views/g2/charts/baseLine/components/Line2.vue')
-const G2Bar1 = () => import('../views/g2/charts/baseBar/components/Bar1.vue')
-const HtmlFagment = () => import('../views/htmlFagment/index.vue')
-const DashBoard = () => import('../views/dashboard/index.vue')
-const ThreeScene = () => import('../views/threeScene/index.vue')
-const Topo1 = () => import('../views/threeScene/scenes/topo/index.vue')
-Vue.use(Router)
-
-export const routes = [
+const routes = [
   {
     path: '/',
-    component: TopNav,
-    redirect: 'g2',
     children: [
       {
         path: 'home',
-        component: Home,
         meta: {
           title: '首页',
           icon: 'home',
@@ -33,7 +12,6 @@ export const routes = [
       },
       {
         path: 'echarts',
-        component: Echarts,
         meta: {
           title: 'ECHARTS',
           icon: 'Echarts',
@@ -42,7 +20,6 @@ export const routes = [
         children: [
           {
             path: 'echarts-line',
-            component: EchartsLineAll,
             meta: {
               title: '折线图',
               affix: true
@@ -50,7 +27,6 @@ export const routes = [
             children: [
               {
                 path: 'line1',
-                component: EchartsLine1,
                 meta: {
                   title: '基础折线图',
                   affix: true
@@ -62,7 +38,6 @@ export const routes = [
       },
       {
         path: 'g2',
-        component: G2,
         meta: {
           title: 'G2',
           icon: 'G2',
@@ -71,7 +46,6 @@ export const routes = [
         children: [
           {
             path: 'g2-line',
-            component: G2LineAll,
             meta: {
               title: '折线图',
               affix: true
@@ -79,7 +53,6 @@ export const routes = [
             children: [
               {
                 path: 'line1',
-                component: G2Line1,
                 meta: {
                   title: '基础折线图',
                   affix: true
@@ -87,7 +60,6 @@ export const routes = [
               },
               {
                 path: 'line2',
-                component: G2Line2,
                 meta: {
                   title: '基础折线图_100000',
                   affix: true
@@ -97,7 +69,6 @@ export const routes = [
           },
           {
             path: 'g2-bar',
-            component: G2LineAll,
             meta: {
               title: '条形图',
               icon: 'home',
@@ -106,7 +77,6 @@ export const routes = [
             children: [
               {
                 path: 'bar1',
-                component: G2Bar1,
                 meta: {
                   title: '基础条形图',
                   icon: 'home',
@@ -119,28 +89,26 @@ export const routes = [
       },
       {
         path: 'element',
-        component: HtmlFagment,
         meta: {
           title: 'HTML片段',
           icon: 'home',
-          affix: true
+          affix: true,
+          keepAlive: true
         }
       },
       {
         path: 'threeScene',
-        component: ThreeScene,
         meta: {
-          title: '3D场景',
+          title: '仪表盘',
           icon: 'scene',
           affix: true
         },
         children: [
           {
-            path: 'example_$1',
-            component: Topo1,
+            path: 'topo',
             meta: {
-              title: '示例1',
-              icon: 'scene',
+              title: '3D拓扑',
+              icon: 'topo',
               affix: true
             }
           }
@@ -148,7 +116,6 @@ export const routes = [
       },
       {
         path: 'dashboard',
-        component: DashBoard,
         meta: {
           title: '仪表盘',
           icon: 'dashboard',
@@ -158,7 +125,4 @@ export const routes = [
     ]
   }
 ]
-
-export default new Router({
-  routes
-})
+export default routes

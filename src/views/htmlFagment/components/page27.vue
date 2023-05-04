@@ -517,6 +517,7 @@ export default {
         'asset-relationship-edges'
       )
       this.graph = graph
+      window.graph = graph
     },
     resize() {
       const _this = this

@@ -437,24 +437,6 @@ export default {
           }
         ]
       }
-      const tooltip = new this.$G6.Tooltip({
-        offsetX: 6,
-        offsetY: 6,
-        // 允许出现 tooltip 的 item 类型
-        itemTypes: ['node'],
-        trigger: 'click',
-        // 自定义 tooltip 内容
-        getContent(e) {
-          const outDiv = document.createElement('div')
-          outDiv.style.width = 'fit-content'
-          outDiv.innerHTML = `
-      <ul class="card">
-      <li>节点名称: ${e.item.getModel().label}</li>
-       </ul>`
-          return outDiv
-        }
-      })
-      window.tool = tooltip
       const container = document.getElementById('container_16')
       const width = container.scrollWidth
       const height = container.scrollHeight || 500
@@ -463,7 +445,6 @@ export default {
         width,
         height,
         fitView: true,
-        // plugins: [tooltip],
         layout: {
           type: 'gForce',
           preset: 'circular',

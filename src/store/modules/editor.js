@@ -2,11 +2,12 @@
  * @Author: 闫佳佳 18332162809@163.com
  * @Date: 2022-10-11 19:58:29
  * @LastEditors: 闫佳佳
- * @LastEditTime: 2023-02-08 18:31:14
+ * @LastEditTime: 2023-04-27 15:30:05
  * @FilePath: /vue-demo/src/store/modules/editor.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import _ from 'lodash'
+import chartsConfig from '@/views/dashboard/uieditor/compSource/config.js'
 const screenInfoVal = {
   width: 1366,
   height: 768,
@@ -23,12 +24,18 @@ const screenInfoVal = {
 const state = () => ({
   //收藏数据
   compType: {
-    customComp: {
-      title: '我的收藏',
+    echarts: {
+      title: '图表组件',
       open: true,
       icon: 'el-icon-star-on collect',
-      children: []
+      children: chartsConfig.commonChars
     }
+    // customComp: {
+    //   title: '我的收藏',
+    //   open: true,
+    //   icon: 'el-icon-star-on collect',
+    //   children: []
+    // }
   },
   // tab栏面板数据
   editTabState: {
